@@ -14,9 +14,17 @@ function Survey() {
   const onSubmitSurvey = event => {
     event.preventDefault()
     console.log(surveyData)
+    setSurveyData({
+      username: '',
+      color: 0,
+      spendTime: [],
+      review: '',
+      email: '',
+    })
   }
 
   const onChangeSurvey = event => {
+    // console.log(surveyData.spendTime)
     switch (event.target.name) {
       case 'color':
         setSurveyData({...surveyData, color: event.target.value})

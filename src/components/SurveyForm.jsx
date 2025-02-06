@@ -9,17 +9,18 @@ export default function SurveyForm({surveyData, onSubmit, onChange}) {
       <h2>Tell us what you think about your rubber duck!</h2>
       <div className='form__group radio'>
         <h3>How do you rate your rubber duck colour?</h3>
-        <Radiobuttons />
+        <Radiobuttons selected={surveyData.color} />
       </div>
       <div className='form__group'>
         <h3>How do you like to spend time with your rubber duck</h3>
-        <Checkboxes />
+        <Checkboxes selected={surveyData.spendTime} />
       </div>
       <label
         >What else have you got to say about your rubber duck?<textarea
           name='review'
           cols='30'
           rows='10'
+          value={surveyData.review}
         ></textarea></label
       ><label
         >Put your name here (if you feel like it):<input

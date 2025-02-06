@@ -1,5 +1,5 @@
 
-export default function Checkboxes() {
+export default function Checkboxes({selected}) {
   return (
     <ul>
       <li>
@@ -8,12 +8,18 @@ export default function Checkboxes() {
             name='spend-time'
             type='checkbox'
             value='swimming'
+            checked={selected.includes('swimming')}
           />Swimming</label
         >
       </li>
       <li>
         <label
-          ><input name='spend-time' type='checkbox' value='bathing' />Bathing</label
+          ><input
+            name='spend-time'
+            type='checkbox'
+            value='bathing'
+            checked={selected.includes('bathing')}
+            />Bathing</label
         >
       </li>
       <li>
@@ -22,12 +28,18 @@ export default function Checkboxes() {
             name='spend-time'
             type='checkbox'
             value='chatting'
+            checked={selected.includes('chatting')}
           />Chatting</label
         >
       </li>
       <li>
         <label
-          ><input name='spend-time' type='checkbox' value='noTime' />I don't like to
+          ><input
+            name='spend-time'
+            type='checkbox'
+            value='noTime'
+            checked={selected.includes('noTime')}
+            />I don't like to
           spend time with it</label
         >
       </li>
