@@ -1,7 +1,7 @@
-import "./App.css";
+import './App.css';
 
-import Header from "./components/Header";
-import Survey from "./components/Survey";
+import Header from './components/Header';
+import Survey from './components/Survey';
 
 export default function App() {
   return (
