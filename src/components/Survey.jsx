@@ -42,13 +42,15 @@ function Survey() {
         setSurveyData({...surveyData, color: event.target.value})
         break
       case 'spend-time': {
-        let spendTime = surveyData.spendTime
+        let spendTime = [...surveyData.spendTime]
+        console.log(spendTime)
         if (spendTime.includes(event.target.value)) {
-          spendTime = spendTime.filter(act => act != event.target.value)
+          setSurveyData({...surveyData, spendTime: spendTime.filter(act => act != event.target.value)})
         } else {
-          spendTime.push(event.target.value)
+          // spendTime.push(event.target.value)
+          setSurveyData({...surveyData, spendTime: [...spendTime, event.target.value]})
         }
-        setSurveyData({...surveyData, spendTime: spendTime})
+        // setSurveyData({...surveyData, spendTime: spendTime})
         break
       }
       case 'review':
