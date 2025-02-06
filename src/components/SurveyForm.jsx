@@ -1,3 +1,5 @@
+import Checkboxes from './Checkboxes';
+import Radiobuttons from './Radiobuttons';
 
 
 
@@ -7,11 +9,12 @@ export default function SurveyForm() {
       <h2>Tell us what you think about your rubber duck!</h2>
       <div className='form__group radio'>
         <h3>How do you rate your rubber duck colour?</h3>
-        {/* <!-- Radio inputs go here --> */}
+        <Radiobuttons />
+        
       </div>
       <div className='form__group'>
         <h3>How do you like to spend time with your rubber duck</h3>
-        {/* <!-- checkboxes go here --> */}
+        <Checkboxes />
       </div>
       <label
         >What else have you got to say about your rubber duck?<textarea
