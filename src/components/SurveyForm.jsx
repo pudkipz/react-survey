@@ -3,14 +3,13 @@ import Radiobuttons from './Radiobuttons';
 
 
 
-export default function SurveyForm() {
+export default function SurveyForm({onSubmit}) {
   return (
-    <form className='form'>
+    <form className='form' onSubmit={onSubmit}>
       <h2>Tell us what you think about your rubber duck!</h2>
       <div className='form__group radio'>
         <h3>How do you rate your rubber duck colour?</h3>
         <Radiobuttons />
-        
       </div>
       <div className='form__group'>
         <h3>How do you like to spend time with your rubber duck</h3>
