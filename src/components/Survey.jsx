@@ -12,14 +12,18 @@ function Survey() {
     email: '',
   })
   const [answersList, setAnswersList] = useState([])
+  const [editIndex, setEditIndex] = useState(-1)
 
   const onSubmitSurvey = event => {
     event.preventDefault()
     // console.log(surveyData)
     let tempList = answersList
-    tempList.push(surveyData)
+    if (editIndex >= 0) {
+      tempList[editIndex] = {...surveyData, index: editIndex}
+    } else {
+      tempList.push({...surveyData, index: tempList.length})
+    }
     setAnswersList(tempList)
-    // console.log(answersList)
     setSurveyData({
       username: '',
       color: 0,
@@ -27,6 +31,8 @@ function Survey() {
       review: '',
       email: '',
     })
+    setEditIndex(-1)
+    // console.log(answersList)
   }
 
   const onChangeSurvey = event => {
@@ -58,11 +64,16 @@ function Survey() {
     }
   }
 
+  const onEditButtonClick = index => {
+    setEditIndex(index)
+    setSurveyData({...answersList[index]})
+  }
+
   return (
     <main className='survey'>
       <section className={`survey__list ${open ? 'open' : ''}`}>
         <h2>Answers list</h2>
-        <AnswersList answersList={answersList} />
+        <AnswersList answersList={answersList} onEditButtonClick={onEditButtonClick} />
       </section>
       <section className='survey__form'>
         <SurveyForm surveyData={surveyData} onSubmit={onSubmitSurvey} onChange={onChangeSurvey} />
