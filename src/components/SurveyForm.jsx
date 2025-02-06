@@ -3,9 +3,9 @@ import Radiobuttons from './Radiobuttons';
 
 
 
-export default function SurveyForm({onSubmit}) {
+export default function SurveyForm({surveyData, onSubmit, onChange}) {
   return (
-    <form className='form' onSubmit={onSubmit}>
+    <form className='form' onSubmit={onSubmit} onChange={onChange}>
       <h2>Tell us what you think about your rubber duck!</h2>
       <div className='form__group radio'>
         <h3>How do you rate your rubber duck colour?</h3>
@@ -25,12 +25,12 @@ export default function SurveyForm({onSubmit}) {
         >Put your name here (if you feel like it):<input
           type='text'
           name='username'
-          value='' /></label
+          value={surveyData.username} /></label
       ><label
         >Leave us your email pretty please??<input
           type='email'
           name='email'
-          value='' /></label
+          value={surveyData.email} /></label
       ><input className='form__submit' type='submit' value='Submit Survey!' />
     </form>
   )
